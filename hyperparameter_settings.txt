@@ -1,0 +1,501 @@
+This is an overview over the hyperparameter settings for all UE methods and backbones that led to the best OOD detection results in the underlying master thesis study (mainly in terms of AUROC) on both bustom use case datasets (Element and Emblem).
+
+########## Element dataset ##########
+# -------------------------------------------
+## Deep Ensembles
+
+# linear backbone
+- lr: 1e-4
+- weight_decay: 5e-4
+- batch_size: 64
+- epochs: 30
+- aug: False
+
+# VGG16 backbone
+- lr: 1e-4
+- weight_decay: 1
+- batch_size: 64
+- epochs: 30
+- aug: False
+
+# ResNet34 backbone
+- lr: 1e-5
+- weight_decay: 5e-4
+- batch_size: 64
+- epochs: 30
+- aug: False
+
+# ResNet50 backbone
+- lr: 1e-3
+- weight_decay: 5e-4
+- batch_size: 64
+- epochs: 30
+- aug: False
+
+# DenseNet backbone
+- lr: 1e-4
+- weight_decay: 0
+- batch_size: 64
+- epochs: 30
+- aug: False
+
+# -------------------------------------------
+## MC Dropout
+# linear backbone
+- lr: 1e-3
+- weight_decay: 5e-4
+- pdrop: 0.1
+- batch_size: 64
+- epochs: 30
+- aug: True
+- nb_samples: 50 (default in pred script)
+
+# VGG16 backbone
+- lr: 1e-5
+- weight_decay: 5e-4
+- pdrop: 0.1
+- batch_size: 64
+- epochs: 30
+- aug: True
+- nb_samples: 50 (default in pred script)
+
+# ResNet34 backbone
+- lr: 1e-4
+- weight_decay: 5e-4
+- pdrop: 0.5
+- batch_size: 64
+- epochs: 30
+- aug: False
+- nb_samples: 50 (default in pred script)
+
+# ResNet50 backbone
+- lr: 1e-4
+- weight_decay: 5e-4
+- pdrop: 0.1
+- batch_size: 64
+- epochs: 30
+- aug: False
+- nb_samples: 50 (default in pred script)
+
+# DenseNet backbone
+- lr: 1e-3
+- weight_decay: 5e-4
+- pdrop: 0.1
+- batch_size: 64
+- epochs: 30
+- aug: False
+- nb_samples: 50 (default in pred script)
+
+# -------------------------------------------
+## Bayes by Backprop
+# Gaussian prior (MLP)
+- lr: 1e-4
+- weight_decay: 0
+- prior_sig: 0.05
+- nhid: 200
+- batch_size: 32
+- epochs: 30
+- aug: False
+- n_samples: 20
+
+# GMM prior (MLP)
+- lr: 1e-4
+- weight_decay: 0
+- prior_sig: 0.05
+- nhid: 200
+- batch_size: 32
+- epochs: 30
+- aug: False
+- n_samples: 20
+
+# Laplace prior (MLP)
+- lr: 1e-4
+- weight_decay: 0
+- prior_sig: 0.05
+- nhid: 200
+- batch_size: 32
+- epochs: 30
+- aug: False
+- n_samples: 20
+
+# Local Reparam (MLP)
+- lr: 1e-3
+- weight_decay: 0
+- prior_sig: 0.05
+- nhid: 200
+- batch_size: 32
+- epochs: 30
+- aug: False
+- n_samples: 20
+
+# -------------------------------------------
+## Mahalanobis
+# linear backbone
+- lr: 1e-5
+- batch_size: 64
+- epochs: 30
+- aug: False
+
+# VGG16 backbone
+- lr: 1e-5
+- batch_size: 64
+- epochs: 30
+- aug: False
+
+# ResNet34 backbone
+- lr: 1e-3
+- batch_size: 64
+- epochs: 30
+- aug: False
+
+# ResNet50 backbone
+- lr: 1e-3
+- batch_size: 64
+- epochs: 30
+- aug: False
+
+# DenseNet backbone
+- lr: 1e-5
+- batch_size: 64
+- epochs: 30
+- aug: False
+
+# -------------------------------------------
+## DUQ
+# linear backbone
+- lr: 5e-2
+- weight_decay: 5e-4
+- l_gradient_penalty: 0.05
+- length_scale: 0.7
+- gamma: 0.999 (default in train script)
+- batch_size: 64
+- epochs: 30
+- aug: True
+
+# VGG16 backbone
+- lr: 5e-2
+- weight_decay: 5e-4
+- l_gradient_penalty: 0.05
+- length_scale: 0.7
+- gamma: 0.999 (default in train script)
+- batch_size: 64
+- epochs: 30
+- aug: True
+
+# ResNet34 backbone
+- lr: 1e-4
+- weight_decay: 5e-4
+- l_gradient_penalty: 0.8
+- length_scale: 0.1
+- gamma: 0.999 (default in train script)
+- batch_size: 64
+- epochs: 30
+- aug: True
+
+# ResNet50 backbone
+- lr: 1e-4
+- weight_decay: 5e-4
+- l_gradient_penalty: 0.05
+- length_scale: 0.6
+- gamma: 0.999 (default in train script)
+- batch_size: 64
+- epochs: 30
+- aug: True
+
+# DenseNet backbone
+- lr: 1e-4
+- weight_decay: 5e-4
+- l_gradient_penalty: 0.05
+- length_scale: 0.4
+- gamma: 0.999 (default in train script)
+- batch_size: 64
+- epochs: 30
+- aug: True
+
+# -------------------------------------------
+## Learning Confidence
+# linear backbone
+- learning_rate: 1e-2
+- budget: 0.5
+- batch_size: 64
+- epochs: 60
+- aug: True
+
+# VGG16 backbone
+- learning_rate: 1e-4
+- budget: 0.1
+- batch_size: 64
+- epochs: 60
+- aug: True
+
+# ResNet34 backbone
+- learning_rate: 1e-2
+- budget: 0.3
+- batch_size: 64
+- epochs: 60
+- aug: True
+
+# ResNet50 backbone
+- learning_rate: 1e-1
+- budget: 0.1
+- batch_size: 64
+- epochs: 60
+- aug: False
+
+# DenseNet backbone
+- learning_rate: 1e-3
+- budget: 0.5
+- batch_size: 64
+- epochs: 60
+- aug: False
+
+# -------------------------------------------------------------------------------------------------------------------------------------------------
+
+########## Emblem dataset ##########
+# -------------------------------------------
+## Deep Ensembles
+
+# linear backbone
+- lr: 1e-5
+- weight_decay: 5e-4
+- batch_size: 32
+- epochs: 30
+- aug: False
+
+# VGG16 backbone
+- lr: 1e-4
+- weight_decay: 5e-4
+- batch_size: 32
+- epochs: 30
+- aug: False
+
+# ResNet34 backbone
+- lr: 1e-4
+- weight_decay: 1
+- batch_size: 32
+- epochs: 30
+- aug: False
+
+# ResNet50 backbone
+- lr: 1e-4
+- weight_decay: 5e-4
+- batch_size: 32
+- epochs: 30
+- aug: False
+
+# DenseNet backbone
+- lr: 1e-4
+- weight_decay: 5e-4
+- batch_size: 32
+- epochs: 30
+- aug: False
+
+# -------------------------------------------
+## MC Dropout
+# linear backbone
+- lr: 1e-5
+- weight_decay: 5e-4
+- pdrop: 0.3
+- batch_size: 16
+- epochs: 30
+- aug: False
+- nb_samples: 50 (default in pred script)
+
+# VGG16 backbone
+- lr: 1e-3
+- weight_decay: 5e-4
+- pdrop: 0.1
+- batch_size: 16
+- epochs: 30
+- aug: False
+- nb_samples: 50 (default in pred script)
+
+# ResNet34 backbone
+- lr: 1e-3
+- weight_decay: 5e-4
+- pdrop: 0.3
+- batch_size: 16
+- epochs: 30
+- aug: False
+- nb_samples: 50 (default in pred script)
+
+# ResNet50 backbone
+- lr: 1e-3
+- weight_decay: 5e-4
+- pdrop: 0.1
+- batch_size: 16
+- epochs: 30
+- aug: False
+- nb_samples: 50 (default in pred script)
+
+# DenseNet backbone
+- lr: 1e-4
+- weight_decay: 5e-4
+- pdrop: 0.3
+- batch_size: 16
+- epochs: 30
+- aug: False
+- nb_samples: 50 (default in pred script)
+
+# -------------------------------------------
+## Bayes by Backprop
+# Gaussian prior (MLP)
+- lr: 1e-4
+- weight_decay: 0
+- prior_sig: 0.2
+- nhid: 200
+- batch_size: 16
+- epochs: 30
+- aug: True
+- n_samples: 20
+
+# GMM prior (MLP)
+- lr: 1e-4
+- weight_decay: 0
+- prior_sig: 0.2
+- nhid: 200
+- batch_size: 16
+- epochs: 30
+- aug: True
+- n_samples: 20
+
+# Laplace prior (MLP)
+- lr: 1e-4
+- weight_decay: 0
+- prior_sig: 0.2
+- nhid: 200
+- batch_size: 16
+- epochs: 30
+- aug: False
+- n_samples: 20
+
+# Local Reparam (MLP)
+- lr: 1e-4
+- weight_decay: 0
+- prior_sig: 0.2
+- nhid: 200
+- batch_size: 16
+- epochs: 30
+- aug: True
+- n_samples: 20
+
+# -------------------------------------------
+## Mahalanobis
+# linear backbone
+- lr: 1e-4
+- batch_size: 16
+- epochs: 30
+- aug: False
+
+# VGG16 backbone
+- lr: 1e-3
+- batch_size: 16
+- epochs: 30
+- aug: False
+
+# ResNet34 backbone
+- lr: 1e-2
+- batch_size: 16
+- epochs: 30
+- aug: False
+
+# ResNet50 backbone
+- lr: 1e-2
+- batch_size: 16
+- epochs: 30
+- aug: False
+
+# DenseNet backbone
+- lr: 1e-2
+- batch_size: 16
+- epochs: 30
+- aug: False
+
+# -------------------------------------------
+## DUQ
+# linear backbone
+- lr: 5e-2
+- weight_decay: 5e-4
+- l_gradient_penalty: 0.4
+- length_scale: 0.7
+- gamma: 0.999 (default in train script)
+- batch_size: 16
+- epochs: 30
+- aug: True
+
+# VGG16 backbone
+- lr: 5e-2
+- weight_decay: 5e-4
+- l_gradient_penalty: 0.3
+- length_scale: 0.4
+- gamma: 0.999 (default in train script)
+- batch_size: 16
+- epochs: 30
+- aug: True
+
+# ResNet34 backbone
+- lr: 1e-4
+- weight_decay: 5e-4
+- l_gradient_penalty: 0.5
+- length_scale: 0.1
+- gamma: 0.999 (default in train script)
+- batch_size: 16
+- epochs: 30
+- aug: True
+
+# ResNet50 backbone
+- lr: 1e-4
+- weight_decay: 5e-4
+- l_gradient_penalty: 0.05
+- length_scale: 0.6
+- gamma: 0.999 (default in train script)
+- batch_size: 16
+- epochs: 30
+- aug: True
+
+# DenseNet backbone
+- lr: 1e-4
+- weight_decay: 5e-4
+- l_gradient_penalty: 0.5
+- length_scale: 0.1
+- gamma: 0.999 (default in train script)
+- batch_size: 16
+- epochs: 30
+- aug: True
+
+# -------------------------------------------
+## Learning Confidence
+# linear backbone
+- learning_rate: 1e-4
+- budget: 0.3
+- batch_size: 64
+- epochs: 60
+- aug: False
+
+# VGG16 backbone
+- learning_rate: 1e-2
+- budget: 0.1
+- batch_size: 64
+- epochs: 60
+- aug: False
+
+# ResNet34 backbone
+- learning_rate: 1e-2
+- budget: 0.1
+- batch_size: 64
+- epochs: 60
+- aug: False
+
+# ResNet50 backbone
+- learning_rate: 1e-2
+- budget: 0.5
+- batch_size: 64
+- epochs: 60
+- aug: False
+
+# DenseNet backbone
+- learning_rate: 1e-1
+- budget: 0.3
+- batch_size: 64
+- epochs: 60
+- aug: False
